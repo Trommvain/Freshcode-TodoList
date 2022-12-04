@@ -1,0 +1,80 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    height: 850px;
+    background-color: white;
+    margin-top: 30px;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.form {
+    display: flex;
+    width: 85%;
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+    .input {
+        flex-grow: 5;
+        padding: 0 10px;
+        outline: none;
+        border: 2px solid lightseagreen;
+        border-radius: 5px;
+        font-size: 20px;
+        margin-right: 20px;
+
+        &:focus {
+            border: 3px solid rgb(31, 199, 255);
+        }
+
+        &::placeholder {
+            color: rgb(192, 192, 192);
+        }
+
+        &:focus::placeholder {
+            color: transparent;
+        }
+    }
+
+    .addBtn {
+        flex-grow: 1;
+        background-color: rgb(24, 185, 77);
+        color: whitesmoke;
+        padding: 10px 15px;
+        font-size: 24px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        user-select: none;
+
+        &:hover {
+            background-color: rgb(19, 138, 59);
+        }
+
+        &:active {
+            background-color: rgb(10, 68, 29);
+        }
+    }
+}
+
+.todoBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    width: 80%;
+    height: 560px;
+    border: 2px solid lightseagreen;
+    border-radius: 5px;
+    padding: 20px 20px;
+    
+    .placeholder {
+        align-self: flex-start;
+        margin: 0;
+        color: rgb(192, 192, 192);
+        font-size: 20px;
+        font-style: italic;
+    }
+}
