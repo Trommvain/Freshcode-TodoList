@@ -8,40 +8,33 @@ export const initialState = {
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case ACTION_TYPES.ADDTODO: {
+    case ACTION_TYPES.ADD_TODO: {
       const todoObj = {
         id: uuidv4(),
         text: action.payload,
         isDone: false,
       };
-      const newTodoArr = state.todoItems;
-      newTodoArr.push(todoObj);
+
       return {
-        todoItems: newTodoArr,
+        todoItems: [...state.todoItems, todoObj],
         scroll: !state.scroll,
       };
     }
 
-    case ACTION_TYPES.DELETETODO: {
-      const newTodoArr = state.todoItems.filter(
-        (item) => item.id !== action.payload
-      );
+    case ACTION_TYPES.DELETE_TODO: {
       return {
-        todoItems: newTodoArr,
-        scroll: state.scroll,
+        ...state,
+        todoItems: state.todoItems.filter((item) => item.id !== action.payload),
       };
     }
 
-    case ACTION_TYPES.TOGGLETODO: {
-      const newTodoArr = state.todoItems.map((item) => {
-        if (item.id === action.payload) {
-          item.isDone = !item.isDone;
-        }
-        return item;
-      });
+    case ACTION_TYPES.TOGGLE_TODO: {
       return {
-        todoItems: newTodoArr,
-        scroll: state.scroll,
+        ...state,
+        todoItems: state.todoItems.map((item) => ({
+          ...item,
+          isDone: item.id === action.payload ? !item.isDone : item.isDone,
+        })),
       };
     }
 

@@ -1,7 +1,7 @@
 const ACTION_TYPES = {
-  ADDTODO: "addTodo",
-  DELETETODO: "deleteTodo",
-  TOGGLETODO: "toggleTodo",
+  ADD_TODO: "todo/addTodo",
+  DELETE_TODO: "todo/deleteTodo",
+  TOGGLE_TODO: "todo/toggleTodo",
 };
 
 export default ACTION_TYPES;
